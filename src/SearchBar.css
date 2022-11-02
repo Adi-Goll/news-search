@@ -1,9 +1,18 @@
 #search-bar {
     width: 30vw;
-
 }
+
+textarea,
+input {
+    outline: none;
+}
+
 
 #input-div {
     text-align: center;
     padding-top: 40vh;
+}
+
+#search-button {
+    background-color: green;
 }

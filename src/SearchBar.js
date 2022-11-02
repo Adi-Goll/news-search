@@ -2,7 +2,6 @@ import './SearchBar.css';
 import { useState } from 'react';
 
 
-
 // const express = require('express');
 // const app = express();
 // const port = process.env.PORT || 5000;
@@ -21,7 +20,10 @@ function SearchBar() {
     const [searchItem, updateSearchItem] = useState('');
 
     const handleInputChange = event => {
-        updateSearchItem(event.target.value)
+        updateSearchItem(event.target.value);
+    }
+
+    const handleButtonClick = () => {
         console.log(searchItem);
     }
 
@@ -35,6 +37,7 @@ function SearchBar() {
                     onChange={handleInputChange}
                     id="search-bar"
                 />
+                <button onClick={handleButtonClick} id="search-button">SEARCH</button>
             </div>
         </div>
 
