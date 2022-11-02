@@ -1,11 +1,40 @@
 import './SearchBar.css';
+import { useState } from 'react';
+
+
+
+// const express = require('express');
+// const app = express();
+// const port = process.env.PORT || 5000;
+
+// app.listen(port, () => {
+//     console.log(`listening on port ${port}`);
+// });
+
+
+// app.get('/newsRequest', (req) => {
+//     console.log(`received request bro good job it says ${req}`);
+// });
 
 
 function SearchBar() {
+    const [searchItem, updateSearchItem] = useState('');
+
+    const handleInputChange = event => {
+        updateSearchItem(event.target.value)
+        console.log(searchItem);
+    }
+
+
     return (
         <div>
             <div id="input-div">
-                <input id="search-bar" />
+                <input
+                    type="text"
+                    value={searchItem}
+                    onChange={handleInputChange}
+                    id="search-bar"
+                />
             </div>
         </div>
 
