@@ -1,19 +1,8 @@
 import './SearchBar.css';
 import { useState } from 'react';
+import axios from 'axios';
 
 
-// const express = require('express');
-// const app = express();
-// const port = process.env.PORT || 5000;
-
-// app.listen(port, () => {
-//     console.log(`listening on port ${port}`);
-// });
-
-
-// app.get('/newsRequest', (req) => {
-//     console.log(`received request bro good job it says ${req}`);
-// });
 
 
 function SearchBar() {
@@ -25,7 +14,17 @@ function SearchBar() {
 
     const handleButtonClick = () => {
         console.log(searchItem);
+        axios.post('http://localhost:5000/newsRequest', null, {
+            params: {
+                newsAPIQuery: searchItem
+            }
+        })
+            .then(() => {
+                console.log("request was a success");
+            })
+
     }
+
 
 
     return (
