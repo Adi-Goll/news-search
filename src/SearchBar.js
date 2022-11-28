@@ -13,7 +13,8 @@ function SearchBar() {
     }
 
     const handleButtonClick = () => {
-        console.log(searchItem);
+        console.log(axios.get(`https://newsapi.org/v2/everything?q=${searchItem}&apiKey=6fe149c2c18b49e6a6a771c564585e5f`));
+
         axios.post('http://localhost:5000/newsRequest', null, {
             params: {
                 newsAPIQuery: searchItem
