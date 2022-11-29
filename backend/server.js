@@ -15,7 +15,8 @@ newsAPIReturnObj = {
     description: 'description',
     urlToArticle: 'urlToArticle',
     urlToImage: 'urlToImage',
-    publishDate: 'publishDate'
+    publishDate: 'publishDate',
+    content: 'content'
 }
 
 const newsAPIRequest = (newsAPIQuery) => {
@@ -27,10 +28,25 @@ const newsAPIRequest = (newsAPIQuery) => {
     })
         .then(function (response) {
             response = JSON.parse(response.data);
-            console.log("inside request function on backend")
-            console.log(response.articles[0]);
+            responseArticleOne = response.articles[0];
+
+            newsAPIReturnObj.source = responseArticleOne.source.name;
+            newsAPIReturnObj.author = responseArticleOne.author;
+            newsAPIReturnObj.title = responseArticleOne.title;
+            newsAPIReturnObj.description = responseArticleOne.title;
+            newsAPIReturnObj.urlToArticle = responseArticleOne.url;
+            newsAPIReturnObj.urlToImage = responseArticleOne.urlToImage;
+            newsAPIReturnObj.publishDate = responseArticleOne.publishedAt;
+            newsAPIReturnObj.content = responseArticleOne.content;
+
+
+            console.log(newsAPIReturnObj);
+            res.send(newsAPIReturnObj);
+
+
         });
     console.log("made that request bih");
+
 }
 
 app.listen(port, () => {
